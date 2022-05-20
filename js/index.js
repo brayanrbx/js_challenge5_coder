@@ -2,6 +2,7 @@ import {character} from './character.js';
 import {enemies} from './enemies.js';
 import {hitTestRectangle} from './collision.js';
 import {downHandler, upHandler} from './keyboard.js';
+import {getPuntaje, setPuntaje} from './local.js'; // prueba
 
 // The application will create a renderer using WebGL, if possible,
 // with a fallback to a canvas render. It will also setup the ticker
@@ -19,13 +20,25 @@ document.getElementById("game").appendChild(app.view);
 
 let contador = 0;
 let cont = 0;
-
+const enemy = []
 const enemyStats = {
     respawn: 100,
     speed: 1,
 };
-const enemy = []
+
+// test de prueba
+const jugador = {
+    name: "jugador 1",
+    puntaje: 0,
+}
+
 const main = character(width, height);
+
+const $game = document.getElementById("game");
+const $h1 = document.createElement('h1');
+$h1.classList.add('game-over', 'game-over--hidden');
+$h1.textContent = "Game Over";
+$game.appendChild($h1);
 
 function setup() {
     app.stage.addChild(main);
@@ -38,6 +51,7 @@ function gameLoop(delta) {
     contador++;
     if (contador % enemyStats.respawn == 0) {
         app.stage.addChild(enemies(enemy, cont));
+        jugador.puntaje += 1; // prueba
         cont++;
     }
 
@@ -59,7 +73,11 @@ function state(delta) {
     for (let i = 0; i < cont; i++) {
         if (hitTestRectangle(enemy[i], main)) {
             console.log("colision");
-            game.stop();
+            $h1.classList.remove('game-over--hidden');
+            $h1.classList.add('game-over--active');
+            const jogador = getPuntaje(jugador); // prueba
+            setPuntaje(jogador, jugador); // prueba
+            app.stop();
         }
     }
 };
@@ -67,6 +85,9 @@ function state(delta) {
 setup();
 
 export {main, enemyStats};
+
+
+
 
 
 

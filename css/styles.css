@@ -14,3 +14,18 @@ body {
     min-height: 100vh;
     background-color: #2d2e6d;
 }
+
+.game-over {
+    position: absolute;
+    font-size: 5rem;
+    color: #42C269;
+    font-weight: 1000;
+}
+
+.game-over--active {
+    visibility: visible;
+}
+
+.game-over--hidden {
+    visibility: hidden;
+}

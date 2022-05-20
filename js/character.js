@@ -7,7 +7,7 @@ export function character(width, height) {
         characterH = 50; // alto del personaje
     let posx = (width / 2) - (characterW / 2);
     let posy = (height) - (characterH + 10);
-    let rectangle = new PIXI.Graphics();  // creacion del objeto 
+    let rectangle = new PIXI.Graphics();  // creacion del objeto
     rectangle.lineStyle(2, 0xFFFFFF, 1); // estilo de linea
     rectangle.beginFill(0xdfca); // color de fondo
     rectangle.drawRect(0, 0, characterW, characterH); // creacion del rectangulo

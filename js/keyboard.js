@@ -7,13 +7,12 @@ const teclas = {
     RIGHT: 39
 };
 
-function downHandler(evento) {
+function downHandler(e) {
     let movimiento = 4;
-    switch (evento.keyCode) {
+    switch (e.keyCode) {
         case teclas.DOWN:
             enemyStats.speed += 10;
             enemyStats.respawn = 10;
-            console.log(enemyStats.enemySpeed);
             break;
         case teclas.LEFT:
             main.vx = -movimiento;
@@ -24,8 +23,8 @@ function downHandler(evento) {
     }
 };
 
-function upHandler(evento) {
-    switch (evento.keyCode) {
+function upHandler(e) {
+    switch (e.keyCode) {
         case teclas.DOWN:
             enemyStats.speed = 1;
             enemyStats.respawn = 100;
@@ -33,12 +32,10 @@ function upHandler(evento) {
         case teclas.LEFT:
             main.vx = 0;
             main.vy = 0;
-            console.log('no me sueltes')
         break;
         case teclas.RIGHT:
             main.vx = 0;
             main.vy = 0;
-            console.log('no me suelte de nuevo')
         break;
     }
 };
