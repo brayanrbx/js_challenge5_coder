@@ -7,13 +7,13 @@ export function character(width, height) {
         characterH = 50; // alto del personaje
     let posx = (width / 2) - (characterW / 2);
     let posy = (height) - (characterH + 10);
-    let rectangle = new PIXI.Graphics();  // creacion del objeto
+    let rectangle = new PIXI.Graphics();  // creación del objeto
     rectangle.lineStyle(2, 0xFFFFFF, 1); // estilo de linea
     rectangle.beginFill(0xdfca); // color de fondo
     rectangle.drawRect(0, 0, characterW, characterH); // creacion del rectangulo
-    rectangle.endFill(); // termina la creacion del rectangulo
-    rectangle.x = posx; // posicion x en canvas
-    rectangle.y = posy; // posicion y en canvas
+    rectangle.endFill(); // termina la creación del rectángulo
+    rectangle.x = posx; // posición x en canvas
+    rectangle.y = posy; // posición y en canvas
     rectangle.vx = 0;
     rectangle.vy = 0;
     return rectangle;

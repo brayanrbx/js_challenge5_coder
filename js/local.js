@@ -1,12 +1,9 @@
+
 //prueba
 function getPuntaje() {
     let jogador;
-    if (localStorage.getItem('jogador') == null) {
-        jogador = [];
-    }
-    else {
-        jogador = JSON.parse(localStorage.getItem('jogador'));
-    }
+    // cambio a modo ternario
+    (localStorage.getItem('jogador') == null) ? jogador = [] : jogador = JSON.parse(localStorage.getItem('jogador'));
     return jogador;
 };
 

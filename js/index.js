@@ -21,6 +21,7 @@ document.getElementById("game").appendChild(app.view);
 let contador = 0;
 let cont = 0;
 const enemy = []
+
 const enemyStats = {
     respawn: 100,
     speed: 1,
@@ -64,12 +65,16 @@ function gameLoop(delta) {
 
 function state(delta) {
     main.x += main.vx;
+
+    // controlar que el personaje no se salga de la pantalla
     if (main.x < 20) {
         main.x = 20;
     }
-    if (main.x > (width - 80)) {
-        main.x = 920;;
+    if (main.x > (width - 70)) {
+        main.x = (width - 70);
     }
+
+    // saber si el personaje colisiona con otro y si se hace se genera un mensaje de game over, también se guarda el puntaje en localStorage
     for (let i = 0; i < cont; i++) {
         if (hitTestRectangle(enemy[i], main)) {
             console.log("colision");
