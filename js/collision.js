@@ -4,7 +4,6 @@
  * @param {object} r2 objeto personaje principal
  * @returns {boolean} se retorna un booleano que indica si el personaje colisiona con algún enemigo
  */
-
 export function hitTestRectangle(r1, r2) {
     //Calculate `centerX` and `centerY` properties on the sprites
     r1.centerX = r1.x + r1.width / 2;

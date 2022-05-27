@@ -27,5 +27,19 @@ body {
 }
 
 .game-over--hidden {
-    visibility: hidden;
+    display: none;
+}
+
+/* FIXME */
+.start {
+    position: absolute;
+    font-size: 3rem;
+    color: #42C269;}
+    p {
+        text-align: center;
+        font-size: 4rem;
+    }
+
+.start--hidden {
+    display: none;
 }

@@ -1,5 +1,5 @@
 
-//prueba
+// FIXME prueba
 function getPuntaje() {
     let jogador;
     // cambio a modo ternario

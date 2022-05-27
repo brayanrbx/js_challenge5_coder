@@ -27,7 +27,7 @@ const enemyStats = {
     speed: 1,
 };
 
-// test de prueba
+//FIXME test de prueba
 const jugador = {
     name: "jugador 1",
     puntaje: 0,
@@ -40,6 +40,11 @@ const $h1 = document.createElement('h1');
 $h1.classList.add('game-over', 'game-over--hidden');
 $h1.textContent = "Game Over";
 $game.appendChild($h1);
+
+// FIXME
+const $start = document.getElementById("start");
+const $count = document.getElementById("count");
+let countRegresive = 3;
 
 function setup() {
     app.stage.addChild(main);
@@ -80,14 +85,32 @@ function state(delta) {
             console.log("colision");
             $h1.classList.remove('game-over--hidden');
             $h1.classList.add('game-over--active');
-            const jogador = getPuntaje(jugador); // prueba
-            setPuntaje(jogador, jugador); // prueba
+            const jogador = getPuntaje(jugador); // FIXME prueba
+            setPuntaje(jogador, jugador); // FIXME prueba
             app.stop();
         }
     }
 };
 
-setup();
+// FIXME
+setInterval(() => {
+    $count.textContent = countRegresive;
+    if (countRegresive == 0) {
+        $start.classList.add('start--hidden');
+        clearInterval();
+    }
+    countRegresive--;
+}, 1000);
+
+setTimeout(() => {
+    Swal.fire({
+        icon: 'info',
+        title: 'Controls',
+        text: 'Use the arrow keys to move the character, and avoid the enemies. \nleft anda right arrow move your character. \nDown arrow, speed up enemy falling ',
+        timer: 3000,
+    })
+    setup();
+}, 4000);
 
 export {main, enemyStats};
 
