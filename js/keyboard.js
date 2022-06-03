@@ -37,8 +37,8 @@ function upHandler(e) {
     switch (e.keyCode) {
         // al soltar la tecla down la velocidad de caída del enemigo regresa a su valor por default
         case teclas.DOWN:
-            enemyStats.speed = 1;
-            enemyStats.respawn = 100;
+            enemyStats.speed = enemyStats.speedDefault;
+            enemyStats.respawn = 50;
             break;
         case teclas.LEFT:
             main.vx = 0;

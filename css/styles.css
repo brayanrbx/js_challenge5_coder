@@ -15,10 +15,15 @@ body {
     background-color: #2d2e6d;
 }
 
+.game__ranking {
+    cursor: pointer;
+}
+
 .game-over {
     position: absolute;
     font-size: 5rem;
     color: #42C269;
+    text-shadow: 2px 2px 10px #42C269;
     font-weight: 1000;
 }
 
@@ -30,16 +35,38 @@ body {
     display: none;
 }
 
-/* FIXME */
+.game__show {
+    position: absolute;
+    display: flex;
+    width: 52%;
+    align-self: flex-start;
+}
+
+.game__show > ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    list-style: none;
+    color: #42C269;
+}
+
 .start {
     position: absolute;
     font-size: 3rem;
-    color: #42C269;}
-    p {
-        text-align: center;
-        font-size: 4rem;
-    }
+    color: #42C269;
+}
+
+.start p {
+    text-align: center;
+    font-size: 4rem;
+}
 
 .start--hidden {
     display: none;
+}
+
+.game__ranking:hover {
+    color: #137bcf;
 }

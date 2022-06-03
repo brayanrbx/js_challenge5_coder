@@ -1,0 +1,61 @@
+[
+    {
+        "id": "1",
+        "name": "Sugar",
+        "score": 10000
+    },
+
+    {
+        "id": "2",
+        "name": "Salt",
+        "score": 9999
+    },
+
+    {
+        "id": "3",
+        "name": "Water",
+        "score": 8900
+    },
+
+    {
+        "id": "4",
+        "name": "Milk",
+        "score": 8500
+    },
+
+    {
+        "id": "5",
+        "name": "Eggs",
+        "score": 8300
+    },
+
+    {
+        "id": "6",
+        "name": "Flour",
+        "score": 8200
+    },
+
+    {
+        "id": "7",
+        "name": "Butter",
+        "score": 8100
+    },
+
+    {
+        "id": "8",
+        "name": "Yeast",
+        "score": 8050
+    },
+
+    {
+        "id": "9",
+        "name": "Pepper",
+        "score": 8000
+    },
+
+    {
+        "id": "10",
+        "name": "Cinnamon",
+        "score": 7999
+    }
+]

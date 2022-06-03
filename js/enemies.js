@@ -1,4 +1,3 @@
-
 /**
  * función que permite la creación de los enemigos
  * @param {array} enemy se ingresa un array para llenar con la información de los enemigos
@@ -6,7 +5,6 @@
  * @returns {array} retorna un array de objeto con la información de los enemigos
  */
 export function enemies(enemy, cont) {
-    console.log(cont);
     let characterW = 50,
         characterH = 50;
     let posx = radomInt(0, 800 - characterW);
