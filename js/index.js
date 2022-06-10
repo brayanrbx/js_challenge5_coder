@@ -9,10 +9,12 @@ import {getPuntaje, setPuntaje} from './local.js'; // prueba
 // and the root stage PIXI.Container
 const app = new PIXI.Application();
 const loader = PIXI.Loader.shared;
+const container = PIXI.Container;
 
 // variables of canvas
-let width = 1000;
+let width = window.innerWidth;
 let height = window.innerHeight;
+let content = new container();
 app.renderer.resize(width, height);
 app.renderer.backgroundColor = 0x061639;
 
@@ -20,17 +22,24 @@ app.renderer.backgroundColor = 0x061639;
 // can then insert into the DOM.
 document.getElementById("game").appendChild(app.view);
 
-// background game
+// background and sound game
 loader.add('background', 'assets/img/19333449.jpg');
+loader.add('rally', 'assets/sound/rally-x.mp3');
+loader.add('game_over', 'assets/sound/game-over.mp3');
 loader.load(config);
 
 // variable that storage the background
 let backSprite;
 
+// variable that storage the sound
+let soundRally;
+let soundGameOver;
+
+// const name = await playerName();
 const name = await playerName();
 
 const enemyStats = {
-    respawn: 50,
+    respawn: 30,
     speed: 1,
     speedDefault: 1,
     passCar: 0,
@@ -85,20 +94,25 @@ const showScore = showPlayer();
 function config(loader, resources) {
     backSprite = new PIXI.TilingSprite(resources.background.texture, width, height);
     backSprite.tileScale.set(0.1, 0.1);
-    app.stage.addChild(backSprite);
+    content.addChild(backSprite);
+    soundRally = PIXI.sound.Sound.from(resources.rally);
+    soundGameOver = PIXI.sound.Sound.from(resources.game_over);
 }
 
 function setup() {
-    app.stage.addChild(main);
+    content.addChild(main);
+    app.stage.addChild(content);
     app.ticker.add((delta) => gameLoop(delta));
+    soundRally.play();
+    soundRally.loop = 1;
     downHandler();
     upHandler();
 };
 
 function gameLoop(delta) {
-    contador++;
+    contador++;;
     if (contador % enemyStats.respawn == 0) {
-        app.stage.addChild(enemies(enemy, cont));
+        content.addChild(enemies(enemy, cont, width));
         jugador.puntaje += 1;
         cont++;
         showScore[1].textContent = `Score: ${jugador.puntaje}`;
@@ -126,7 +140,7 @@ showRanking();
 
 function showRanking() {
     showScore[0].addEventListener('click', async () => {
-        const response = await (await fetch('scores.json'))
+        const response = await fetch('scores.json');
         const data = await response.json();
         console.log(data);
     });
@@ -137,13 +151,12 @@ function state(delta) {
     main.x += main.vx;
 
     // controlar que el personaje no se salga de la pantalla
-    if (main.x < 20) {
-        main.x = 20;
+    if (main.x <= 0) {
+        main.x = 0;
     }
-    if (main.x > (width - 70)) {
-        main.x = (width - 70);
+    if (main.x >= (width - main.width)) {
+        main.x = (width - main.width);
     }
-
     gameOver();
 };
 
@@ -155,6 +168,8 @@ const gameOver = () => {
             $h1.classList.add('game-over--active');
             const jogador = getPuntaje(jugador);
             setPuntaje(jogador, jugador);
+            soundRally.stop();
+            soundGameOver.play();
             app.stop();
         }
     }
@@ -191,7 +206,7 @@ async function playerName() {
         input: 'text',
         inputLabel: 'Your player name',
         allowOutsideClick: false,
-    });
+    })
     return name;
 };
 

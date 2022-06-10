@@ -18,7 +18,7 @@ function downHandler(e) {
         // al presionar o mantener presionada la tecla down se aumenta la velocidad de caída del enemigo
         case teclas.DOWN:
             enemyStats.speed += 10;
-            enemyStats.respawn = 10;
+            enemyStats.respawn = 5;
             break;
         case teclas.LEFT:
             main.vx = -movimiento;
@@ -38,7 +38,7 @@ function upHandler(e) {
         // al soltar la tecla down la velocidad de caída del enemigo regresa a su valor por default
         case teclas.DOWN:
             enemyStats.speed = enemyStats.speedDefault;
-            enemyStats.respawn = 50;
+            enemyStats.respawn = 30;
             break;
         case teclas.LEFT:
             main.vx = 0;

@@ -4,10 +4,10 @@
  * @param {int} cont se ingresa  un entero que sirve como el index del array
  * @returns {array} retorna un array de objeto con la información de los enemigos
  */
-export function enemies(enemy, cont) {
-    let characterW = 50,
-        characterH = 50;
-    let posx = radomInt(0, 800 - characterW);
+export function enemies(enemy, cont, width) {
+    let characterW = 40,
+        characterH = 40;
+    let posx = radomInt(0, width - characterW);
     enemy[cont] = new PIXI.Graphics();
     enemy[cont].lineStyle(2, generarNuevoColor(), 1);
     enemy[cont].beginFill(generarNuevoColor());

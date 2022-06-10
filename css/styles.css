@@ -25,6 +25,7 @@ body {
     color: #42C269;
     text-shadow: 2px 2px 10px #42C269;
     font-weight: 1000;
+    text-align: center;
 }
 
 .game-over--active {
@@ -38,14 +39,16 @@ body {
 .game__show {
     position: absolute;
     display: flex;
-    width: 52%;
+    width: 100%;
     align-self: flex-start;
 }
 
 .game__show > ul {
     display: flex;
-    width: 100%;
+    flex-flow: row wrap;
     justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
     padding: 1rem 2rem;
     font-size: 1.5rem;
     list-style: none;
@@ -54,13 +57,14 @@ body {
 
 .start {
     position: absolute;
-    font-size: 3rem;
+    font-size: 2rem;
     color: #42C269;
+    text-align: center;
 }
 
 .start p {
     text-align: center;
-    font-size: 4rem;
+    font-size: 2rem;
 }
 
 .start--hidden {
@@ -69,4 +73,17 @@ body {
 
 .game__ranking:hover {
     color: #137bcf;
+}
+
+@media (min-width: 768px) {
+    start {
+        font-size: 3rem;
+    }
+    .start p {
+        font-size: 4rem;
+    }
+
+    .game-over {
+        font-size: 5rem;
+    }
 }
